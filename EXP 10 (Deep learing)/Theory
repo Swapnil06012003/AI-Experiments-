@@ -1,0 +1,10 @@
+Convulation Neural networks 
+
+1. A convolutional neural network, or CNN, is a deep learning neural network designed for processing structured arrays of data such as images. Convolutional neural networks are widely used in computer vision and have become the state of the art for many visual applications such as image classification
+2. Convolutional neural networks are very good at picking up on patterns in the input image, such as lines, gradients, circles, or even eyes and faces.
+3. A convolutional neural network is a feed-forward neural network, often with up to 20 or 30 layers. The power of a convolutional neural network comes from a special kind of layer called the convolutional layer.
+4. Convolutional neural networks contain many convolutional layers stacked on top of each other, each one capable of recognizing more sophisticated shapes. With three or four convolutional layers it is possible to recognize handwritten digits and with 25 layers it is possible to distinguish human faces.
+5. The architecture of a convolutional neural network is a multi-layered feed-forward neural network, made by stacking many hidden layers on top of each other in sequence. It is this sequential design that allows convolutional neural networks to learn hierarchical features.
+6. The key building block in a convolutional neural network is the convolutional layer. We can visualize a convolutional layer as many small square templates, called convolutional kernels, which slide over the image and look for patterns. 
+7. After passing an image through a convolutional layer, the output is normally passed through an activation function. Common activation functions include the sigmoid function
+8. A convolutional neural network is a special kind of feedforward neural network with fewer weights than a fully-connected network.In a fully-connected feedforward neural network, every node in the input is tied to every node in the first layer, and so on. There is no convolution kernel.
