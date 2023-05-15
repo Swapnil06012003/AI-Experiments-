@@ -1,0 +1,20 @@
+Logistic regression 
+
+1. Logistic regression is used for solving the classification problems.
+2. Logistic regression predicts the output of a categorical dependent variable. Therefore the outcome must be a categorical or discrete value. It can be either Yes or No, 0 or 1, true or False, etc. but instead of giving the exact value as 0 and 1, it gives the probabilistic values which lie between 0 and 1.
+3. The sigmoid function is a mathematical function used to map the predicted values to probabilities.
+4. It maps any real value into another value within a range of 0 and 1.
+5. In logistic regression, we use the concept of the threshold value, which defines the probability of either 0 or 1. Such as values above the threshold value tends to 1, and a value below the threshold values tends to 0.
+
+Assumptions of logistic regression:-
+
+6. The dependent variable must be categorical in nature.
+7. The independent variable should not have multi-collinearity.
+
+Types of regression:-
+On the basis of the categories, Logistic Regression can be classified into three types:
+
+Binomial: In binomial Logistic regression, there can be only two possible types of the dependent variables, such as 0 or 1, Pass or Fail, etc.
+Multinomial: In multinomial Logistic regression, there can be 3 or more possible unordered types of the dependent variable, such as "cat", "dogs", or "sheep"
+Ordinal: In ordinal Logistic regression, there can be 3 or more possible ordered types of dependent variables, such as "low", "Medium", or "High".
+
