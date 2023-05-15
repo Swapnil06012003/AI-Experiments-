@@ -1,0 +1,36 @@
+def resolve(clause1, clause2):
+    resolved_clause = []
+    for literal in clause1:
+        if literal.startswith('~'):
+            opposite_literal = literal[1:]
+        else:
+            opposite_literal = '~' + literal
+        if opposite_literal not in clause2:
+            resolved_clause.append(literal)
+    return resolved_clause
+
+def resolution(clauses):
+    new_clauses = list(clauses)
+    while True:
+        n = len(new_clauses)
+        pairs = [(clause1, clause2) for i, clause1 in enumerate(new_clauses) for clause2 in new_clauses[i + 1:]]
+        for clause1, clause2 in pairs:
+            resolvents = resolve(clause1, clause2)
+            if not resolvents:
+                return True  # Empty clause found, unsatisfiable
+            new_clauses.append(resolvents)
+        if len(new_clauses) == n:
+            return False  # No new clauses added, termination condition reached
+
+clauses = [
+    ['A', '~B', 'C'],
+    ['B', 'D'],
+    ['~C', 'D'],
+    ['~A'],
+]
+
+result = resolution(clauses)
+if result:
+    print("The clauses are unsatisfiable.")
+else:
+    print("The clauses are satisfiable.")
