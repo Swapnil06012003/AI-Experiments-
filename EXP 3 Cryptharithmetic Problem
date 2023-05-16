@@ -1,3 +1,5 @@
+# input is -> NUM + BER = PLAY
+
 import itertools
 import re
 
@@ -24,4 +26,4 @@ cat = ''.join # Function to concatenate strings
 leading_zero = re.compile(r'\b0[0-9]').search # Function to check for illegal number
 x=input("Enter with space between words \n")
 print(next(solve(x)))
-# input is -> NUM + BER = PLAY
+
