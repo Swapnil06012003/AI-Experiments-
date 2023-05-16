@@ -1,0 +1,66 @@
+from collections import deque
+
+def bfs(start, target, size):
+    visited = set()
+    queue = deque([(start, [])])
+
+    while queue:
+        (state, path) = queue.popleft()
+        if state == target:
+            return path
+
+        for action, result in get_neighbors(state, size):
+            if result not in visited:
+                visited.add(result)
+                queue.append((result, path + [action]))
+
+    return []
+
+def dfs(start, target, size):
+    visited = set()
+    stack = [(start, [])]
+
+    while stack:
+        (state, path) = stack.pop()
+        if state == target:
+            return path
+
+        for action, result in reversed(get_neighbors(state, size)):
+            if result not in visited:
+                visited.add(result)
+                stack.append((result, path + [action]))
+
+    return []
+
+def get_neighbors(state, size):
+    (a, b) = state
+    return [("fill A", (size[0], b)),
+            ("fill B", (a, size[1])),
+            ("empty A", (0, b)),
+            ("empty B", (a, 0)),
+            ("pour A to B", (max(0, a - (size[1] - b)), min(a + b, size[1]))),
+            ("pour B to A", (min(a + b, size[0]), max(0, b - (size[0] - a))))]
+
+# User input
+jug1 = int(input("Enter the capacity of jug 1: "))
+jug2 = int(input("Enter the capacity of jug 2: "))
+start_state = (0, 0)
+target_state = None
+while target_state is None or target_state[0] != 2 and target_state[1] != 2:
+    target_state = tuple(map(int, input("Enter the target state (in the form of two numbers separated by comma): ").split(",")))
+
+steps_bfs = bfs(start_state, target_state, (jug1, jug2))
+if steps_bfs:
+    print("BFS steps:", len(steps_bfs))
+    for step in steps_bfs:
+        print(step)
+else:
+    print("Target state not reachable by BFS")
+
+steps_dfs = dfs(start_state, target_state, (jug1, jug2))
+if steps_dfs:
+    print("DFS steps:", len(steps_dfs))
+    for step in steps_dfs:
+        print(step)
+else:
+    print("Target state not reachable by DFS")
