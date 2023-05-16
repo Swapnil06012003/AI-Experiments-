@@ -1,0 +1,30 @@
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from nltk.tag import pos_tag
+from collections import Counter
+
+sentence = input("Enter a sentence: ")
+
+tokens = word_tokenize(sentence)
+
+stop_words = set(stopwords.words("english"))
+tokens = [word for word in tokens if word.lower() not in stop_words]
+
+pos_tags = pos_tag(tokens)
+
+pronouns = [word for word, pos in pos_tags if pos == "PRP"]
+auxiliary_verbs = [word for word, pos in pos_tags if pos == "MD"]
+determiners = [word for word, pos in pos_tags if pos == "DT"]
+nouns = [word for word, pos in pos_tags if pos.startswith("NN")]
+punctuation = [word for word, pos in pos_tags if pos in [".", ",", ":", ";", "!", "?"]]
+
+noun_freq = Counter(nouns)
+
+print("Original Sentence: ", sentence)
+print("Pronouns: ", pronouns)
+print("Auxiliary Verbs: ", auxiliary_verbs)
+print("Determiners: ", determiners)
+print("Nouns: ", nouns)
+print("Punctuation: ", punctuation)
+print("Noun Frequency: ", noun_freq)
